@@ -1,0 +1,17 @@
+KeyLaunch
+=========
+Copyright(c) Stefan Pfetzing, 2005
+Copyright(c) Ken Lynch, 2001
+Distributed under the GPL
+See LICENSE for more details
+
+Installation
+============
+Type the following:
+
+	./configure
+	make
+	make install
+
+Then add keylaunch to your .xinitrc file.
+

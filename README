@@ -1,0 +1,12 @@
+KeyLaunch
+=========
+Copyright(c) Stefan Pfetzing, 2005
+Copyright(c) Ken Lynch, 2001
+Distributed under the GPL
+See LICENSE for more details
+
+Usage
+=====
+KeyLaunch is a small utility for binding commands to a hot key.
+See example_rc for more information.
+

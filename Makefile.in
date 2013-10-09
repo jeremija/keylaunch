@@ -1,0 +1,94 @@
+# Makefile, written for Keylaunch - NO automake at all!
+# @configure_input@
+#
+# Copyright (c) 2005 Stefan Pfetzing <dreamind@dreamind.de>
+#
+#
+PROG		=	keylaunch
+
+DESTDIR		=
+PREFIX		=	@prefix@
+INSTDIR		=	$(DESTDIR)$(PREFIX)
+BIN_DIR		=	$(INSTDIR)/bin
+MAN1_DIR	=	$(INSTDIR)/share/man/man1
+DOC_DIR		=	$(INSTDIR)/share/doc/$(PROG)
+
+
+VERBOSE		=
+ifeq ($(VERBOSE), 1)
+	Q	=
+else
+	Q	=	@
+endif
+
+CC		=	@CC@
+CFLAGS		=	@CFLAGS@ @X_CFLAGS@ -g -O2 -Wall
+LIBS		=	@LIBS@ @X_LIBS@
+LDFLAGS		=	@LDFLAGS@
+RCFILE		=	.$(PROG)rc
+DEFINES		=	-DRCFILE=\"$(RCFILE)\"
+OBJS		=	$(PROG).o
+INSTALL		=	@INSTALL@
+INST_PROG_OPTS	=	-D
+INST_MAN_OPTS	=	--mode=644
+INST_DOC_OPTS	=	--mode=644
+INST_CREATEDIR	=	-d
+
+MAINTAINER_FILES=	configure \
+			config.h.in \
+			aclocal.m4 \
+			install-sh \
+			missing
+
+DISTCLEAN_FILES=	stamp-h1 \
+			config.log \
+			config.h \
+			config.status \
+			Makefile
+DISTCLEAN_DIRS	=	autom4te.cache
+
+MANS_1		=	mans/keylaunch.1
+DOCS		=	docs/example_rc README
+
+# The default Target.
+all: $(PROG) 
+
+$(PROG): $(OBJS)
+	@echo "[ linking $< ]"
+	$Q$(CC) $< $(LDFLAGS) $(LIBS) -o $@
+
+$(OBJS): %.o: %.c $(HEADERS)
+	@echo "[ compiling $< ]"
+	$Q$(CC) $(CFLAGS) $(DEFINES) -c $< -o $@
+
+install-mans:
+	@echo "[ installing manpages. (section 1) ]"
+	$Q$(INSTALL) $(INST_CREATEDIR) $(MAN1_DIR)
+	$Q$(INSTALL) $(INST_MAN_OPTS) $(MANS_1) $(MAN1_DIR)
+
+install-docs:
+	@echo "[ installing documentation. ]"
+	$Q$(INSTALL) $(INST_CREATEDIR) $(DOC_DIR)
+	$Q$(INSTALL) $(INST_DOC_OPTS) $(DOCS) $(DOC_DIR)
+
+install: all install-mans install-docs
+	@echo "[ installing $(PROG) ]"
+	$Q$(INSTALL) $(INST_PROG_OPTS) $(PROG) $(BIN_DIR)/$(PROG)
+
+uninstall:
+	@echo "[ uninstalling $(PROG) ]"
+	$Qrm -f $(DESTDIR)$(PREFIX)/bin/$(PROG)
+
+clean:
+	@echo "[ cleaning all. ]"
+	$Qrm -f $(PROG) $(OBJS)
+
+distclean: clean
+	@echo "[ distcleaning all. ]"
+	$Qrm -f $(DISTCLEAN_FILES)
+	$Qrm -rf $(DISTCLEAN_DIRS)
+
+maintainer-clean: distclean
+	@echo "[ cleaning all maintainer files and directories. ]"
+	$Qrm -f $(MAINTAINER_FILES)
+

@@ -1,0 +1,104 @@
+keylaunch (1.3.9) unstable; urgency=low
+
+  * Distclean should clean too. (Closes: #570044)
+  * Add missing script. Not automatically done, because of not using automake.
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Tue, 16 Feb 2010 07:46:17 +0100
+
+keylaunch (1.3.8) unstable; urgency=low
+
+  * Fix several lintian errors and cleanup aclocal/autoconf stuff.
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Sun, 14 Feb 2010 17:31:45 +0100
+
+keylaunch (1.3.7) unstable; urgency=low
+
+  * The keylaunch is not dead release! 
+  * Keylaunch is using dh_strip. (Closes: #498310)
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Sun, 14 Feb 2010 15:52:17 +0100
+
+keylaunch (1.3.6) unstable; urgency=low
+
+  * At first remove all events from the X11 filedescriptor.
+    This lead to a broken 1.3.5 version.
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Fri, 05 Dec 2008 09:49:35 +0100
+
+keylaunch (1.3.5) unstable; urgency=low
+
+  * Use select instead of using a while loop with usleep. 
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Thu, 04 Dec 2008 17:52:49 +0100
+
+keylaunch (1.3.4) unstable; urgency=low
+
+  * Since keylaunch uses dh_strip, the install option -s is not needed.
+    (Closes: #437252)
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Fri, 17 Aug 2007 10:17:06 +0200
+
+keylaunch (1.3.3) unstable; urgency=low
+
+  * No longer depend on xlibs-dev. (Closes: #347006)
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Mon,  9 Jan 2006 17:58:57 +0100
+
+keylaunch (1.3.2) unstable; urgency=low
+
+  * Update Keylaunch to use autoconf.
+  * Install documentation.
+  * Complain when ~/.keylaunchr is not found.
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Sat,  9 Jul 2005 20:15:43 +0200
+
+keylaunch (1.3.1) unstable; urgency=low
+
+  * The I'm back release.
+  * Finally fixed the problem when $HOME was not defined, so lets get
+    the information from the right place.
+  * Fix lintian errors.
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Sun, 27 Jul 2003 23:54:51 +0200
+
+keylaunch (1.3.0-6) unstable; urgency=low
+
+  * Fixed a typo in the manpage.
+    closes: #164839
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Wed, 16 Oct 2002 09:46:48 +0200
+
+keylaunch (1.3.0-5) unstable; urgency=low
+
+  * Fixed the Header to represent the actual situation. 
+
+ -- Stefan Pfetzing <dreamind@dreamind.de>  Mon, 10 Jun 2002 00:45:32 +0200
+
+keylaunch (1.3.0-4) unstable; urgency=low
+
+  * Fixed a spelling error in the man page.
+    closes: #127420
+
+ -- Brandon L. Griffith <brandon@debian.org>  Wed,  3 Apr 2002 12:20:50 -0500
+
+keylaunch (1.3.0-3) unstable; urgency=low
+
+  * Added a manual page.
+  * Cleaned up lintian Warnings.
+
+ -- Brandon L. Griffith <brandon@debian.org>  Mon, 31 Dec 2001 13:38:01 -0500
+
+keylaunch (1.3.0-2) unstable; urgency=low
+
+  * Failed to add Build Depends
+    Closes: #108965
+
+ -- Brandon L. Griffith <brandon@debian.org>  Fri, 17 Aug 2001 09:28:23 -0400
+
+keylaunch (1.3.0-1) unstable; urgency=low
+
+  * Initial Release.
+  * Closes wnpp bug filed for packaging.
+    Closes: #108615
+
+ -- Brandon L. Griffith <brandon@debian.org>  Wed, 15 Aug 2001 00:12:29 -0400
