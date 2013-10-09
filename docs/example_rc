@@ -3,10 +3,11 @@
 # Format:
 # key=...KeyName:Command
 #
-# ... No modifier
-# *.. Shift
-# .*. Ctrl
-# ..* Alt
+# .... No modifier
+# *... Shift
+# .*.. Ctrl
+# ..*. Alt
+# ...* Mod4 (windows key)
 
-key=..*Return:xterm
-key=.**n:netscape
+key=..*.Return:xterm
+key=.**.n:netscape
